@@ -1,0 +1,52 @@
+import datetime 
+
+  def assistente_virtuale(comando):   
+
+   if comando == "Qual è la data di oggi?":        
+
+            oggi = datetime.datetoday()          
+
+            risposta = "La data di oggi è " + oggi.strftime("%d/%m/%Y")   
+
+   elif comando == "Che ore sono?":        
+
+            ora_attuale = datetime.datetime.now().time()         
+
+            risposta = "L'ora attuale è " + ora_attuale.strftime("%H%M")    
+
+   elif comando == "Come ti chiami?":        
+
+            risposta = "Mi chiamo Assistente Virtuale"   
+
+   else:        
+
+            risposta = "Non ho capito la tua domanda."      
+
+return risposta while True    
+
+      comando_utente = input("Cosa vuoi sapere? ")    
+
+      if comando_utente.lower() == "esci":        
+
+      print("Arrivederci!")
+
+Il programma:
+
+1) Chiede all'utente un comando tramite input.
+2) Risponde in base al comando riconosciuto:
+"Qual è la data di oggi?": fornisce la data odierna.
+"Che ore sono?": fornisce l'ora attuale.
+"Come ti chiami?": indica il nome dell'assistente.
+3) Comandi non riconosciuti producono una risposta generica.
+Termina quando l'utente digita "esci".
+
+
+Errori e migliorire
+
+La funzione datetime.datetoday() è inesistente, la funzione corretta è datetime.date.today().
+Nel comando "Che ore sono?", il metodo .strftime("%H%M") genera l'ora senza i due punti (ad esempio, "2130" invece di "21:30"). Sarebbe più leggibile con "%H:%M".
+Non è stata considerata la possibilità che l'utente inserisca comandi simili ma con variazioni di maiuscole/minuscole. Ad esempio, "qual è la data di oggi?" non sarebbe riconosciuto.
+Potremmo aggiungere tolleranza per errori tipografici o variazioni di maiuscole/minuscole.
+
+
+
